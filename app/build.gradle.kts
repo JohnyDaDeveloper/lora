@@ -5,14 +5,14 @@ plugins {
 
 android {
     namespace = "cz.johnyapps.lora"
-    compileSdk = 33
+    compileSdk = appVersions.versions.compileSdk.get().toInt()
 
     defaultConfig {
         applicationId = "cz.johnyapps.lora"
-        minSdk = 26
-        targetSdk = 33
-        versionCode = 1
-        versionName = "1.0"
+        minSdk = appVersions.versions.minSdk.get().toInt()
+        targetSdk = appVersions.versions.compileSdk.get().toInt()
+        versionCode = appVersions.versions.versionCode.get().toInt()
+        versionName = appVersions.versions.versionName.get()!!
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -28,16 +28,13 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = appVersions.versions.jvmTarget.get()!!
     }
 }
 
 dependencies {
 
-    implementation("androidx.core:core-ktx:1.7.0")
-    implementation("androidx.appcompat:appcompat:1.6.0")
-    implementation("com.google.android.material:material:1.7.0")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.3")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    implementation(libs.bundles.core)
+    testImplementation(libs.bundles.testImplementations)
+    androidTestImplementation(libs.bundles.androidTestImplementations)
 }
