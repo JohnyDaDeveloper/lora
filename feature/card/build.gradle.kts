@@ -1,26 +1,26 @@
 plugins {
-    id("com.android.application")
+    id("com.android.library")
     id("org.jetbrains.kotlin.android")
 }
 
 android {
-    namespace = "cz.johnyapps.lora"
+    namespace = "cz.johnyapps.lora.card"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
-        applicationId = "cz.johnyapps.lora"
         minSdk = libs.versions.minSdk.get().toInt()
         targetSdk = libs.versions.compileSdk.get().toInt()
-        versionCode = libs.versions.versionCode.get().toInt()
-        versionName = libs.versions.versionName.get()
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
         release {
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
 
@@ -43,11 +43,12 @@ android {
 }
 
 dependencies {
-
     implementation(libs.bundles.core)
     implementation(libs.bundles.ui.core)
-    testImplementation(libs.bundles.tests)
-    androidTestImplementation(libs.bundles.androidTests)
 
-    implementation(project(":feature:card"))
+    val composeBom = platform(libs.compose.bom)
+    implementation(composeBom)
+    debugImplementation(composeBom)
+    implementation(libs.bundles.compose)
+    debugImplementation(libs.bundles.compose.debug)
 }
