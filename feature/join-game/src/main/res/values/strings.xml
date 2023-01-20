@@ -2,4 +2,5 @@
 <resources>
     <string name="input_room_id_label">Room ID</string>
     <string name="button_join_text">Join room</string>
+    <string name="button_create_text">Create room</string>
 </resources>

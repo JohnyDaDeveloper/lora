@@ -13,7 +13,9 @@ import androidx.navigation.compose.rememberNavController
 import cz.johnyapps.lora.feature.core.LoraTheme
 import cz.johnyapps.lora.feature.joingame.navigation.joinGameRoute
 import cz.johnyapps.lora.navigation.LoraNavHost
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

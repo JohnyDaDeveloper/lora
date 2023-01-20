@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.OutlinedTextField
@@ -19,13 +20,14 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.hilt.navigation.compose.hiltViewModel
 import cz.johnyapps.lora.feature.core.LoraTheme
 
 @Composable
 internal fun JoinGameRoute(
     modifier: Modifier = Modifier,
-    viewModel: JoinGameViewModel = viewModel()
+    navigateToCreateGame: () -> Unit,
+    viewModel: JoinGameViewModel = hiltViewModel()
 ) {
     val uiState by viewModel.uiState.collectAsState()
 
@@ -33,7 +35,8 @@ internal fun JoinGameRoute(
         modifier = modifier,
         state = uiState,
         onRoomIdChange = viewModel::onRoomIdChange,
-        onJoin = viewModel::onJoin
+        onJoin = viewModel::onJoin,
+        onCreate = navigateToCreateGame
     )
 }
 
@@ -43,7 +46,8 @@ internal fun JoinGameScreen(
     modifier: Modifier = Modifier,
     state: JoinGameUiState,
     onRoomIdChange: (roomId: String) -> Unit,
-    onJoin: () -> Unit
+    onJoin: () -> Unit,
+    onCreate: () -> Unit
 ) {
     Column(
         modifier = modifier
@@ -72,13 +76,33 @@ internal fun JoinGameScreen(
         Button(
             modifier = Modifier
                 .fillMaxWidth()
-                .wrapContentHeight(),
+                .wrapContentHeight()
+                .padding(bottom = 16.dp),
             onClick = onJoin,
             shape = LoraTheme.shapes.small
         ) {
             Text(
+                modifier = Modifier
+                    .wrapContentSize()
+                    .padding(8.dp),
                 text = stringResource(id = R.string.button_join_text),
-                style = LoraTheme.typography.bodyLarge.copy(fontWeight = FontWeight.Bold)
+                style = LoraTheme.typography.bodyMedium.copy(fontWeight = FontWeight.Bold)
+            )
+        }
+
+        Button(
+            modifier = Modifier
+                .fillMaxWidth()
+                .wrapContentHeight(),
+            onClick = onCreate,
+            shape = LoraTheme.shapes.small
+        ) {
+            Text(
+                modifier = Modifier
+                    .wrapContentSize()
+                    .padding(8.dp),
+                text = stringResource(id = R.string.button_create_text),
+                style = LoraTheme.typography.bodyMedium.copy(fontWeight = FontWeight.Bold)
             )
         }
     }
@@ -96,7 +120,8 @@ private fun JoinGameScreenPreview() {
                 roomId = "CoolRoomId"
             ),
             onRoomIdChange = {},
-            onJoin = {}
+            onJoin = {},
+            onCreate = {}
         )
     }
 }

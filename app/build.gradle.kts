@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    kotlin("kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -40,6 +42,10 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
     }
+
+    kapt {
+        correctErrorTypes = true
+    }
 }
 
 dependencies {
@@ -48,6 +54,9 @@ dependencies {
     implementation(libs.bundles.ui.core)
     testImplementation(libs.bundles.tests)
     androidTestImplementation(libs.bundles.androidTests)
+
+    implementation(libs.bundles.hilt)
+    kapt(libs.hilt.compiler)
 
     implementation(project(":feature:join-game"))
     implementation(project(":feature:core"))

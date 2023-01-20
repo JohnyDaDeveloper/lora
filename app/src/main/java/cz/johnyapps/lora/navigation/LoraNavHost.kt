@@ -18,6 +18,10 @@ fun LoraNavHost(
         navController = navController,
         startDestination = startDestination
     ) {
-        joinGameScreen()
+        joinGameScreen(
+            navigateToCreateGame = {
+                // TODO
+            }
+        )
     }
 }

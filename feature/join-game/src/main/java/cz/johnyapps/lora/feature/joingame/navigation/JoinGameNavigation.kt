@@ -12,8 +12,12 @@ fun NavController.navigateToJoinGame(navOptions: NavOptions? = null) {
     this.navigate(joinGameRoute, navOptions)
 }
 
-fun NavGraphBuilder.joinGameScreen() {
+fun NavGraphBuilder.joinGameScreen(
+    navigateToCreateGame: () -> Unit
+) {
     composable(route = joinGameRoute) {
-        JoinGameRoute()
+        JoinGameRoute(
+            navigateToCreateGame = navigateToCreateGame
+        )
     }
 }
