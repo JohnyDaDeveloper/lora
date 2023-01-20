@@ -26,3 +26,4 @@ rootProject.name = "Lóra"
 include(":app")
 include(":feature:card")
 include(":feature:core")
+include(":feature:join-game")
