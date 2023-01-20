@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="symbol_name_acrons">Acrons</string>
+    <string name="symbol_name_bells">Bells</string>
+    <string name="symbol_name_hearths">Hearths</string>
+    <string name="symbol_name_leaves">Leaves</string>
+</resources>
