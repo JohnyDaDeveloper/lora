@@ -1,4 +1,4 @@
-package cz.johnyapps.lora.card
+package cz.johnyapps.lora.feature.card
 
 import androidx.annotation.StringRes
 import androidx.compose.foundation.border
@@ -17,6 +17,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import cz.johnyapps.lora.feature.core.LoraTheme
 
 private const val ratio = 1.4
 
@@ -81,7 +82,7 @@ fun PlayingCard(
 @Preview(showBackground = true)
 @Composable
 private fun PlayingCardPreview() {
-    MaterialTheme {
+    LoraTheme {
         PlayingCard(
             width = 100.dp,
             borderWidth = 4.dp,

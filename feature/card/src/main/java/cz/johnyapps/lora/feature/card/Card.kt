@@ -1,4 +1,4 @@
-package cz.johnyapps.lora.card
+package cz.johnyapps.lora.feature.card
 
 import androidx.annotation.DrawableRes
 

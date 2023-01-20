@@ -50,4 +50,5 @@ dependencies {
     androidTestImplementation(libs.bundles.androidTests)
 
     implementation(project(":feature:card"))
+    implementation(project(":feature:core"))
 }

@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "cz.johnyapps.lora.feature.card"
+    namespace = "cz.johnyapps.lora.feature.core"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
@@ -43,5 +43,12 @@ android {
 }
 
 dependencies {
-    implementation(project(":feature:core"))
+    api(libs.bundles.core)
+    api(libs.bundles.ui.core)
+
+    val composeBom = platform(libs.compose.bom)
+    api(composeBom)
+    debugApi(composeBom)
+    api(libs.bundles.compose)
+    debugApi(libs.bundles.compose.debug)
 }
