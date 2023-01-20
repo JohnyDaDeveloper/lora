@@ -9,7 +9,6 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
 import cz.johnyapps.lora.feature.core.LoraTheme
 import cz.johnyapps.lora.feature.joingame.navigation.joinGameRoute
@@ -46,13 +45,5 @@ private fun Contents() {
             onBackClick = { navHostController.navigateUp() },
             startDestination = joinGameRoute
         )
-    }
-}
-
-@Preview(showBackground = true, showSystemUi = true)
-@Composable
-private fun ContentsPreview() {
-    LoraTheme {
-        Contents()
     }
 }
