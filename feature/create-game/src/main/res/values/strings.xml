@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="text_player_count">Players:</string>
+    <string name="text_working">Creating…</string>
+
     <string name="button_create_text">Create</string>
 </resources>
