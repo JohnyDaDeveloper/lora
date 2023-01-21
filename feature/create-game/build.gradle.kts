@@ -1,28 +1,28 @@
 plugins {
-    id("com.android.application")
+    id("com.android.library")
     id("org.jetbrains.kotlin.android")
     kotlin("kapt")
     id("com.google.dagger.hilt.android")
 }
 
 android {
-    namespace = "cz.johnyapps.lora"
+    namespace = "cz.johnyapps.lora.feature.creategame"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
-        applicationId = "cz.johnyapps.lora"
         minSdk = libs.versions.minSdk.get().toInt()
         targetSdk = libs.versions.compileSdk.get().toInt()
-        versionCode = libs.versions.versionCode.get().toInt()
-        versionName = libs.versions.versionName.get()
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
         release {
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
 
@@ -49,16 +49,10 @@ android {
 }
 
 dependencies {
-
-    implementation(libs.bundles.core)
-    implementation(libs.bundles.ui.core)
-    testImplementation(libs.bundles.tests)
-    androidTestImplementation(libs.bundles.androidTests)
-
     implementation(libs.bundles.hilt)
     kapt(libs.hilt.compiler)
 
     implementation(project(":feature:core"))
-    implementation(project(":feature:join-game"))
-    implementation(project(":feature:create-game"))
+
+    implementation(libs.coroutines)
 }

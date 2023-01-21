@@ -4,6 +4,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
+import cz.johnyapps.lora.feature.creategame.navigation.createGameScreen
+import cz.johnyapps.lora.feature.creategame.navigation.navigateToCreateGame
 import cz.johnyapps.lora.feature.joingame.navigation.joinGameScreen
 
 @Composable
@@ -20,8 +22,10 @@ fun LoraNavHost(
     ) {
         joinGameScreen(
             navigateToCreateGame = {
-                // TODO
+                navController.navigateToCreateGame()
             }
         )
+
+        createGameScreen()
     }
 }
