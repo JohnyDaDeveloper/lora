@@ -46,9 +46,9 @@ class CreateGameViewModel @Inject constructor(
 
             Log.d(TAG, "onCreate: Creating game for $players players")
 
-            createGameUseCase(players)
+            val uuid = createGameUseCase(players)
 
-            Log.d(TAG, "onCreate: Game created!")
+            Log.d(TAG, "onCreate: Game created! (uuid: $uuid)")
         }
     }
 

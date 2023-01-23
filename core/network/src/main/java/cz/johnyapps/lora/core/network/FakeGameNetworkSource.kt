@@ -5,16 +5,27 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.onStart
+import java.util.UUID
 
-internal class FakeGameNetworkSource(
-
-) : GameNetworkSource {
+internal class FakeGameNetworkSource : GameNetworkSource {
     private val gameMap: MutableMap<String, GameNetEntity> = mutableMapOf()
     private val gameUpdates = MutableSharedFlow<GameNetEntity>()
 
-    override suspend fun createGame(gameNetEntity: GameNetEntity) {
-        gameMap[gameNetEntity.uuid] = gameNetEntity
-        gameUpdates.emit(gameNetEntity)
+    override suspend fun createGame(gameSettingsNetEntity: GameSettingsNetEntity): GameNetEntity {
+        val game = GameNetEntity(
+            uuid = UUID.randomUUID().toString(),
+            settings = gameSettingsNetEntity,
+            state = GameStateNetEntity(
+                gamePhase = 0,
+                playingPlayer = "",
+                playerOrder = emptyMap(),
+                endGameOrder = emptyMap()
+            )
+        )
+
+        gameMap[game.uuid] = game
+        gameUpdates.emit(game)
+        return game
     }
 
     override suspend  fun updateGame(gameNetEntity: GameNetEntity) {

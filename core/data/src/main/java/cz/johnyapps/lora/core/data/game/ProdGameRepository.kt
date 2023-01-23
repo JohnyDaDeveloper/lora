@@ -10,9 +10,14 @@ internal class ProdGameRepository(
     private val gameDao: GameDao,
     private val gameNetworkSource: GameNetworkSource
 ) : GameRepository {
-    override suspend fun createGame(game: Game) {
-        gameNetworkSource.createGame(game.mapToNet().getOrThrow())
+    override suspend fun createGame(gameSettings: GameSettings): String {
+        val game = gameNetworkSource.createGame(
+            gameSettings.mapToNet().getOrThrow()
+        ).map().getOrThrow()
+
         gameDao.insert(game.mapToDb().getOrThrow())
+
+        return game.uuid
     }
 
     override suspend fun saveGame(game: Game) {
