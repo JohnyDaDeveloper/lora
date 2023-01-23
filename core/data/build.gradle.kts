@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "cz.johnyapps.lora.feature.creategame"
+    namespace = "cz.johnyapps.lora.core.data"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
@@ -35,26 +35,17 @@ android {
         jvmTarget = libs.versions.jvmTarget.get()
     }
 
-    buildFeatures {
-        compose = true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
-    }
-
     kapt {
         correctErrorTypes = true
     }
 }
 
 dependencies {
+    implementation(libs.bundles.core)
+
     implementation(libs.bundles.hilt)
     kapt(libs.hilt.compiler)
 
-    implementation(project(":feature:core"))
-
-    implementation(project(":core:data"))
-
-    implementation(libs.coroutines)
+    implementation(project(":core:database"))
+    implementation(project(":core:network"))
 }
