@@ -1,5 +1,6 @@
 package cz.johnyapps.lora.feature.creategame
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -47,6 +48,10 @@ internal fun CreateGameRoute(
         onNextPlayerCount = viewModel::onNextPlayerCount,
         onCreate = viewModel::onCreate
     )
+
+    BackHandler(uiState.showWorking) {
+        // Consume onBack event
+    }
 }
 
 @Composable
