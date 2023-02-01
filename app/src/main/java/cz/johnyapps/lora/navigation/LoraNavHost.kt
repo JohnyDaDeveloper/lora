@@ -12,7 +12,6 @@ import cz.johnyapps.lora.feature.joingame.navigation.joinGameScreen
 fun LoraNavHost(
     modifier: Modifier = Modifier,
     navController: NavHostController,
-    onBackClick: () -> Unit,
     startDestination: String
 ) {
     NavHost(

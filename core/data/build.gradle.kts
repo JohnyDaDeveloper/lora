@@ -39,6 +39,17 @@ android {
     kapt {
         correctErrorTypes = true
     }
+
+    detekt {
+        val detektFolder = File(project.rootDir, "config/detekt")
+
+        toolVersion = libs.versions.detekt.asProvider().get()
+        config = files(
+            File(detektFolder, "global").listFiles()?.map { it.absolutePath } ?: emptyArray<String>(),
+            File(detektFolder, "core").listFiles()?.map { it.absolutePath } ?: emptyArray<String>()
+        )
+        buildUponDefaultConfig = true
+    }
 }
 
 dependencies {
@@ -51,14 +62,4 @@ dependencies {
     implementation(project(":core:network"))
 
     detektPlugins(libs.bundles.detekt.core)
-}
-
-tasks.withType<io.gitlab.arturbosch.detekt.Detekt>().configureEach {
-    reports {
-        md.required.set(true)
-    }
-}
-
-tasks.register<io.gitlab.arturbosch.detekt.Detekt>("detektFormat") {
-    autoCorrect = true
 }

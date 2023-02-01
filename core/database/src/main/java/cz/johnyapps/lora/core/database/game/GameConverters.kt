@@ -28,11 +28,11 @@ object GameConverters {
     fun stringToGameSettings(
         string: String
     ): GameSettingsDbEntity {
-        return gameSettingsAdapter.fromJson(string) ?:
-        throw ParseException(
-            "Failed to parse $string as ${GameSettingsDbEntity::class.simpleName}",
-            0
-        )
+        return gameSettingsAdapter.fromJson(string)
+            ?: throw ParseException(
+                "Failed to parse $string as ${GameSettingsDbEntity::class.simpleName}",
+                0
+            )
     }
 
     @TypeConverter
@@ -46,10 +46,10 @@ object GameConverters {
     fun stringToGameState(
         string: String
     ): GameStateDbEntity {
-        return gameStateAdapter.fromJson(string) ?:
-        throw ParseException(
-            "Failed to parse $string as ${GameStateDbEntity::class.simpleName}",
-            0
-        )
+        return gameStateAdapter.fromJson(string)
+            ?: throw ParseException(
+                "Failed to parse $string as ${GameStateDbEntity::class.simpleName}",
+                0
+            )
     }
 }

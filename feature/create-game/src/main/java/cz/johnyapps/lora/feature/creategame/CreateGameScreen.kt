@@ -63,7 +63,9 @@ internal fun CreateGameScreen(
 ) {
     if (state.showWorking) {
         Working(
-            modifier = modifier.zIndex(1f)
+            modifier = Modifier
+                .fillMaxSize()
+                .zIndex(1f)
         )
     }
 
@@ -77,7 +79,7 @@ internal fun CreateGameScreen(
 
 @Composable
 private fun Working(
-    modifier: Modifier,
+    modifier: Modifier = Modifier,
 ) {
     val interactionSource = remember { MutableInteractionSource() }
 
@@ -110,7 +112,7 @@ private fun Working(
 
 @Composable
 private fun Content(
-    modifier: Modifier,
+    modifier: Modifier = Modifier,
     state: CreateGameUiState,
     onNextPlayerCount: () -> Unit,
     onCreate: () -> Unit

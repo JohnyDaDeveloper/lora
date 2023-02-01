@@ -19,19 +19,21 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import cz.johnyapps.lora.feature.core.LoraTheme
 
-private const val ratio = 1.4
+private const val SIZE_RATIO = 1.4
+private const val SYMBOL_SIZE_RATION = 4
 
 @Composable
 fun PlayingCard(
+    modifier: Modifier = Modifier,
     width: Dp,
     borderWidth: Dp,
     card: Card
 ) {
-    val height = width.value * ratio
-    val symbolSize = width.value / 4
+    val height = width.value * SIZE_RATIO
+    val symbolSize = width.value / SYMBOL_SIZE_RATION
 
     Card(
-        modifier = Modifier
+        modifier = modifier
             .size(
                 width,
                 height.dp

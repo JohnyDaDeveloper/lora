@@ -9,6 +9,6 @@ sealed class GameState {
     ) : GameState()
 
     data class Finished(
-        val playerOrder : Map<Int, String>
+        val playerOrder: Map<Int, String>
     ) : GameState()
 }

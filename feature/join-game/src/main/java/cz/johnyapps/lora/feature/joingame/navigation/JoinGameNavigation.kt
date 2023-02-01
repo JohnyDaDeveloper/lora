@@ -6,16 +6,16 @@ import androidx.navigation.NavOptions
 import androidx.navigation.compose.composable
 import cz.johnyapps.lora.feature.joingame.JoinGameRoute
 
-const val joinGameRoute = "join_game_route"
+const val JOIN_GAME_ROUTE = "join_game_route"
 
 fun NavController.navigateToJoinGame(navOptions: NavOptions? = null) {
-    this.navigate(joinGameRoute, navOptions)
+    this.navigate(JOIN_GAME_ROUTE, navOptions)
 }
 
 fun NavGraphBuilder.joinGameScreen(
     navigateToCreateGame: () -> Unit
 ) {
-    composable(route = joinGameRoute) {
+    composable(route = JOIN_GAME_ROUTE) {
         JoinGameRoute(
             navigateToCreateGame = navigateToCreateGame
         )

@@ -43,6 +43,17 @@ android {
     detekt {
         basePath = projectDir.path
     }
+
+    detekt {
+        val detektFolder = File(project.rootDir, "config/detekt")
+
+        toolVersion = libs.versions.detekt.asProvider().get()
+        config = files(
+            File(detektFolder, "global").listFiles()?.map { it.absolutePath } ?: emptyArray<String>(),
+            File(detektFolder, "core").listFiles()?.map { it.absolutePath } ?: emptyArray<String>()
+        )
+        buildUponDefaultConfig = true
+    }
 }
 
 dependencies {

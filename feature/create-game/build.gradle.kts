@@ -49,10 +49,12 @@ android {
     }
 
     detekt {
+        val detektFolder = File(project.rootDir, "config/detekt")
+
         toolVersion = libs.versions.detekt.asProvider().get()
         config = files(
-            "../detekt/twitter-compose.yml",
-            "../detekt/compose.yml"
+            File(detektFolder, "global").listFiles()?.map { it.absolutePath } ?: emptyArray<String>(),
+            File(detektFolder, "feature").listFiles()?.map { it.absolutePath } ?: emptyArray<String>()
         )
         buildUponDefaultConfig = true
     }

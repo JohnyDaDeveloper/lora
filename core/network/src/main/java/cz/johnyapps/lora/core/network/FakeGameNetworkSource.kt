@@ -28,7 +28,7 @@ internal class FakeGameNetworkSource : GameNetworkSource {
         return game
     }
 
-    override suspend  fun updateGame(gameNetEntity: GameNetEntity) {
+    override suspend fun updateGame(gameNetEntity: GameNetEntity) {
         gameMap[gameNetEntity.uuid] = gameNetEntity
         gameUpdates.emit(gameNetEntity)
     }

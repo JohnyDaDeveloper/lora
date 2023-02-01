@@ -30,7 +30,7 @@ class CreateGameViewModel @Inject constructor(
         )
     }.stateIn(
         scope = viewModelScope,
-        started = SharingStarted.WhileSubscribed(5_000),
+        started = SharingStarted.WhileSubscribed(UI_STATE_FLOW_STOP),
         initialValue = CreateGameUiState()
     )
 
@@ -54,5 +54,6 @@ class CreateGameViewModel @Inject constructor(
 
     companion object {
         private const val TAG = "CreateGameViewModel"
+        private const val UI_STATE_FLOW_STOP = 5_000L
     }
 }

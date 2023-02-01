@@ -1,10 +1,10 @@
 package cz.johnyapps.lora.core.data.game
 
-import cz.johnyapps.lora.core.data.map
 import cz.johnyapps.lora.core.data.mapToDb
 import cz.johnyapps.lora.core.data.mapToNet
 import cz.johnyapps.lora.core.database.game.GameDao
 import cz.johnyapps.lora.core.network.GameNetworkSource
+import map
 
 internal class ProdGameRepository(
     private val gameDao: GameDao,

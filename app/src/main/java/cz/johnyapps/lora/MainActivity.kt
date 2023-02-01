@@ -11,7 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
 import cz.johnyapps.lora.feature.core.LoraTheme
-import cz.johnyapps.lora.feature.joingame.navigation.joinGameRoute
+import cz.johnyapps.lora.feature.joingame.navigation.JOIN_GAME_ROUTE
 import cz.johnyapps.lora.navigation.LoraNavHost
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -44,8 +44,7 @@ private fun Contents() {
                 .fillMaxSize()
                 .padding(paddingValues),
             navController = navHostController,
-            onBackClick = { navHostController.navigateUp() },
-            startDestination = joinGameRoute
+            startDestination = JOIN_GAME_ROUTE
         )
     }
 }

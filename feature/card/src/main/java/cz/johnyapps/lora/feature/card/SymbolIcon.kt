@@ -12,7 +12,7 @@ import cz.johnyapps.lora.feature.core.LoraTheme
 
 @Composable
 fun SymbolIcon(
-    modifier: Modifier,
+    modifier: Modifier = Modifier,
     symbol: Symbol,
     contentDescription: String
 ) {

@@ -32,7 +32,3 @@ subprojects {
         }
     }
 }
-
-tasks.register<io.gitlab.arturbosch.detekt.Detekt>("detektFormat") {
-    autoCorrect = true
-}
