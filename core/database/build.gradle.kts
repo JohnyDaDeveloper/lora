@@ -3,6 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     kotlin("kapt")
     id("com.google.dagger.hilt.android")
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -14,6 +15,10 @@ android {
         targetSdk = libs.versions.compileSdk.get().toInt()
 
         consumerProguardFiles("consumer-rules.pro")
+
+        ksp {
+            arg("room.schemaLocation", "$projectDir/schemas")
+        }
     }
 
     buildTypes {
@@ -47,7 +52,7 @@ dependencies {
     kapt(libs.hilt.compiler)
 
     implementation(libs.bundles.room)
-    kapt(libs.room.compiler)
+    ksp(libs.room.compiler)
 
     implementation(libs.moshi)
     kapt(libs.moshi.codegen)

@@ -20,6 +20,7 @@ room = "2.5.0"
 moshi = "1.14.0"
 
 gradle = "7.4.0"
+ksp = "1.7.20-1.0.8"
 
 kotlin = "1.7.20"
 
@@ -77,7 +78,6 @@ room = ["room-runtime", "room-coroutines"]
 [plugins]
 android-app = { id = "com.android.application", version.ref = "gradle" }
 android-lib = { id = "com.android.library", version.ref = "gradle" }
-
 kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
