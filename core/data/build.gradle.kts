@@ -50,7 +50,7 @@ dependencies {
     implementation(project(":core:database"))
     implementation(project(":core:network"))
 
-    detektPlugins(libs.detekt.ktlint)
+    detektPlugins(libs.bundles.detekt.core)
 }
 
 tasks.withType<io.gitlab.arturbosch.detekt.Detekt>().configureEach {

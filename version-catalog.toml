@@ -25,6 +25,7 @@ ksp = "1.7.20-1.0.8"
 kotlin = "1.7.20"
 
 detekt = "1.22.0"
+detekt-compose = "0.0.26"
 
 junit = "4.13.2"
 junit-ext = "1.1.5"
@@ -64,6 +65,7 @@ moshi = { module = "com.squareup.moshi:moshi", version.ref = "moshi" }
 moshi-codegen = { module = "com.squareup.moshi:moshi-kotlin-codegen", version.ref = "moshi" }
 
 detekt-ktlint = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detekt" }
+detekt-compose = { module = "com.twitter.compose.rules:detekt", version.ref = "detekt-compose" }
 
 junit = { module = "junit:junit", version.ref = "junit" }
 junit-ext = { module = "androidx.test.ext:junit", version.ref = "junit-ext" }
@@ -78,6 +80,8 @@ compose = ["compose-material", "compose-preview", "compose-activity", "compose-v
 compose-debug = ["compose-debug-preview"]
 hilt = ["hilt", "hilt-navigation"]
 room = ["room-runtime", "room-coroutines"]
+detekt-core = ["detekt-ktlint"]
+detekt-feature = ["detekt-ktlint", "detekt-compose"]
 
 [plugins]
 android-app = { id = "com.android.application", version.ref = "gradle" }

@@ -58,5 +58,5 @@ dependencies {
     implementation(libs.moshi)
     kapt(libs.moshi.codegen)
 
-    detektPlugins(libs.detekt.ktlint)
+    detektPlugins(libs.bundles.detekt.core)
 }

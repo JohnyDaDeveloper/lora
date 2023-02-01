@@ -53,5 +53,5 @@ dependencies {
     implementation(libs.bundles.hilt)
     kapt(libs.hilt.compiler)
 
-    detektPlugins(libs.detekt.ktlint)
+    detektPlugins(libs.bundles.detekt.core)
 }

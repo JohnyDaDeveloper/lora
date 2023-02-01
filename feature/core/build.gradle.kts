@@ -62,5 +62,5 @@ dependencies {
     api(libs.bundles.compose)
     debugApi(libs.bundles.compose.debug)
 
-    detektPlugins(libs.detekt.ktlint)
+    detektPlugins(libs.bundles.detekt.feature)
 }

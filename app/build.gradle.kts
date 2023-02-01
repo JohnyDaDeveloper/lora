@@ -47,6 +47,15 @@ android {
     kapt {
         correctErrorTypes = true
     }
+
+    detekt {
+        toolVersion = libs.versions.detekt.asProvider().get()
+        config = files(
+            "../detekt/twitter-compose.yml",
+            "../detekt/compose.yml"
+        )
+        buildUponDefaultConfig = true
+    }
 }
 
 dependencies {
@@ -63,5 +72,5 @@ dependencies {
     implementation(project(":feature:join-game"))
     implementation(project(":feature:create-game"))
 
-    detektPlugins(libs.detekt.ktlint)
+    detektPlugins(libs.bundles.detekt.feature)
 }
