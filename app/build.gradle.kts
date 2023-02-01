@@ -3,6 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     kotlin("kapt")
     id("com.google.dagger.hilt.android")
+    alias(libs.plugins.detekt)
 }
 
 android {
@@ -61,4 +62,6 @@ dependencies {
     implementation(project(":feature:core"))
     implementation(project(":feature:join-game"))
     implementation(project(":feature:create-game"))
+
+    detektPlugins(libs.detekt.ktlint)
 }

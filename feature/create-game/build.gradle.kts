@@ -3,6 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     kotlin("kapt")
     id("com.google.dagger.hilt.android")
+    alias(libs.plugins.detekt)
 }
 
 android {
@@ -57,4 +58,6 @@ dependencies {
     implementation(project(":core:data"))
 
     implementation(libs.coroutines)
+
+    detektPlugins(libs.detekt.ktlint)
 }

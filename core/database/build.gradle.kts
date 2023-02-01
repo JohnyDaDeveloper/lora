@@ -4,6 +4,7 @@ plugins {
     kotlin("kapt")
     id("com.google.dagger.hilt.android")
     alias(libs.plugins.ksp)
+    alias(libs.plugins.detekt)
 }
 
 android {
@@ -56,4 +57,6 @@ dependencies {
 
     implementation(libs.moshi)
     kapt(libs.moshi.codegen)
+
+    detektPlugins(libs.detekt.ktlint)
 }

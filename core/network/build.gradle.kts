@@ -3,6 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     kotlin("kapt")
     id("com.google.dagger.hilt.android")
+    alias(libs.plugins.detekt)
 }
 
 android {
@@ -38,6 +39,10 @@ android {
     kapt {
         correctErrorTypes = true
     }
+
+    detekt {
+        basePath = projectDir.path
+    }
 }
 
 dependencies {
@@ -47,4 +52,6 @@ dependencies {
 
     implementation(libs.bundles.hilt)
     kapt(libs.hilt.compiler)
+
+    detektPlugins(libs.detekt.ktlint)
 }

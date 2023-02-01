@@ -3,6 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     kotlin("kapt")
     id("com.google.dagger.hilt.android")
+    alias(libs.plugins.detekt)
 }
 
 android {
@@ -60,4 +61,6 @@ dependencies {
     debugApi(composeBom)
     api(libs.bundles.compose)
     debugApi(libs.bundles.compose.debug)
+
+    detektPlugins(libs.detekt.ktlint)
 }

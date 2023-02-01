@@ -3,6 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     kotlin("kapt")
     id("com.google.dagger.hilt.android")
+    alias(libs.plugins.detekt)
 }
 
 android {
@@ -48,4 +49,16 @@ dependencies {
 
     implementation(project(":core:database"))
     implementation(project(":core:network"))
+
+    detektPlugins(libs.detekt.ktlint)
+}
+
+tasks.withType<io.gitlab.arturbosch.detekt.Detekt>().configureEach {
+    reports {
+        md.required.set(true)
+    }
+}
+
+tasks.register<io.gitlab.arturbosch.detekt.Detekt>("detektFormat") {
+    autoCorrect = true
 }
