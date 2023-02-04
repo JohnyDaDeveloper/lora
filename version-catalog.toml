@@ -19,7 +19,8 @@ room = "2.5.0"
 
 moshi = "1.14.0"
 
-gradle = "7.4.0"
+gradle-app = "7.4.0"
+gradle-lib = "7.4.1"
 ksp = "1.7.20-1.0.8"
 
 kotlin = "1.7.20"
@@ -84,8 +85,8 @@ detekt-core = ["detekt-ktlint"]
 detekt-feature = ["detekt-ktlint", "detekt-compose"]
 
 [plugins]
-android-app = { id = "com.android.application", version.ref = "gradle" }
-android-lib = { id = "com.android.library", version.ref = "gradle" }
+android-app = { id = "com.android.application", version.ref = "gradle-app" }
+android-lib = { id = "com.android.library", version.ref = "gradle-lib" }
 kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
