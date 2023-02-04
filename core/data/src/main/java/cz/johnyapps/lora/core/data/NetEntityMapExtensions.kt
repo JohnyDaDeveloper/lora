@@ -1,7 +1,6 @@
 import cz.johnyapps.lora.core.data.fromCallable
 import cz.johnyapps.lora.core.data.game.Game
 import cz.johnyapps.lora.core.data.game.GameParseException
-import cz.johnyapps.lora.core.data.game.GamePhases
 import cz.johnyapps.lora.core.data.game.GameSettings
 import cz.johnyapps.lora.core.data.game.GameState
 import cz.johnyapps.lora.core.data.result
@@ -22,11 +21,11 @@ internal fun GameNetEntity.map(): Result<Game> {
 internal fun GameStateNetEntity.map(): Result<GameState> {
     return Result.fromCallable {
         when (gamePhase) {
-            GamePhases.PREPARATION -> {
+            cz.johnyapps.lora.core.constants.GamePhases.INIT -> {
                 GameState.Preparing
             }
 
-            GamePhases.PLAYING -> {
+            cz.johnyapps.lora.core.constants.GamePhases.PLAYING -> {
                 if (playerOrder.isEmpty()) {
                     throw GameParseException("Unexpected empty player order")
                 }
@@ -41,7 +40,7 @@ internal fun GameStateNetEntity.map(): Result<GameState> {
                 )
             }
 
-            GamePhases.FINISHED -> {
+            cz.johnyapps.lora.core.constants.GamePhases.FINISHED -> {
                 if (playerOrder.isEmpty()) {
                     throw GameParseException("Unexpected empty end game player order")
                 }

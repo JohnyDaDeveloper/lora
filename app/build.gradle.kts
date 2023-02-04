@@ -64,8 +64,8 @@ android {
 dependencies {
     implementation(libs.bundles.core)
     implementation(libs.bundles.ui.core)
+
     testImplementation(libs.bundles.tests)
-    androidTestImplementation(libs.bundles.androidTests)
 
     implementation(libs.bundles.hilt)
     kapt(libs.hilt.compiler)
