@@ -1,5 +1,6 @@
 package cz.johnyapps.lora.core.data
 
+import cz.johnyapps.lora.core.constants.GamePhases
 import cz.johnyapps.lora.core.data.game.Game
 import cz.johnyapps.lora.core.data.game.GameSettings
 import cz.johnyapps.lora.core.data.game.GameState
@@ -35,7 +36,7 @@ internal fun GameState.mapToDb(): Result<GameStateDbEntity> {
         when (this) {
             is GameState.Preparing -> {
                 GameStateDbEntity(
-                    gamePhase = cz.johnyapps.lora.core.constants.GamePhases.INIT,
+                    gamePhase = GamePhases.PREPARING,
                     playingPlayer = "",
                     playerOrder = emptyMap(),
                     endGameOrder = emptyMap()
@@ -44,7 +45,7 @@ internal fun GameState.mapToDb(): Result<GameStateDbEntity> {
 
             is GameState.Playing -> {
                 GameStateDbEntity(
-                    gamePhase = cz.johnyapps.lora.core.constants.GamePhases.PLAYING,
+                    gamePhase = GamePhases.PLAYING,
                     playingPlayer = playingPlayer,
                     playerOrder = playerOrder,
                     endGameOrder = emptyMap()
@@ -53,7 +54,7 @@ internal fun GameState.mapToDb(): Result<GameStateDbEntity> {
 
             is GameState.Finished -> {
                 GameStateDbEntity(
-                    gamePhase = cz.johnyapps.lora.core.constants.GamePhases.FINISHED,
+                    gamePhase = GamePhases.FINISHED,
                     playingPlayer = "",
                     playerOrder = emptyMap(),
                     endGameOrder = playerOrder
@@ -68,7 +69,7 @@ internal fun GameState.mapToNet(): Result<GameStateNetEntity> {
         when (this) {
             is GameState.Preparing -> {
                 GameStateNetEntity(
-                    gamePhase = cz.johnyapps.lora.core.constants.GamePhases.INIT,
+                    gamePhase = GamePhases.PREPARING,
                     playingPlayer = "",
                     playerOrder = emptyMap(),
                     endGameOrder = emptyMap()
@@ -77,7 +78,7 @@ internal fun GameState.mapToNet(): Result<GameStateNetEntity> {
 
             is GameState.Playing -> {
                 GameStateNetEntity(
-                    gamePhase = cz.johnyapps.lora.core.constants.GamePhases.PLAYING,
+                    gamePhase = GamePhases.PLAYING,
                     playingPlayer = playingPlayer,
                     playerOrder = playerOrder,
                     endGameOrder = emptyMap()
@@ -86,7 +87,7 @@ internal fun GameState.mapToNet(): Result<GameStateNetEntity> {
 
             is GameState.Finished -> {
                 GameStateNetEntity(
-                    gamePhase = cz.johnyapps.lora.core.constants.GamePhases.FINISHED,
+                    gamePhase = GamePhases.FINISHED,
                     playingPlayer = "",
                     playerOrder = emptyMap(),
                     endGameOrder = playerOrder

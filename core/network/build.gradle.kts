@@ -65,4 +65,6 @@ dependencies {
     kapt(libs.hilt.compiler)
 
     detektPlugins(libs.bundles.detekt.core)
+
+    implementation(project(":core:constants"))
 }

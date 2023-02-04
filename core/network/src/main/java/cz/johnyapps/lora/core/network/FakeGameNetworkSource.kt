@@ -1,5 +1,6 @@
 package cz.johnyapps.lora.core.network
 
+import cz.johnyapps.lora.core.constants.GamePhases
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.emptyFlow
@@ -16,7 +17,7 @@ internal class FakeGameNetworkSource : GameNetworkSource {
             uuid = UUID.randomUUID().toString(),
             settings = gameSettingsNetEntity,
             state = GameStateNetEntity(
-                gamePhase = 0,
+                gamePhase = GamePhases.PREPARING,
                 playingPlayer = "",
                 playerOrder = emptyMap(),
                 endGameOrder = emptyMap()
