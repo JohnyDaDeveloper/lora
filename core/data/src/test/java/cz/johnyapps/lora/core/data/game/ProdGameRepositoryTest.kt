@@ -47,7 +47,7 @@ internal class ProdGameRepositoryTest {
             players = GAME_PLAYERS
         ),
         state = GameStateNetEntity(
-            gamePhase = GamePhases.INIT,
+            gamePhase = GamePhases.PREPARING,
             playingPlayer = "",
             playerOrder = emptyMap(),
             endGameOrder = emptyMap()
@@ -60,7 +60,7 @@ internal class ProdGameRepositoryTest {
             players = GAME_PLAYERS
         ),
         state = GameStateDbEntity(
-            gamePhase = GamePhases.INIT,
+            gamePhase = GamePhases.PREPARING,
             playingPlayer = "",
             playerOrder = emptyMap(),
             endGameOrder = emptyMap()
@@ -86,6 +86,7 @@ internal class ProdGameRepositoryTest {
     fun `createGame() calls network and database sources`() = runTest {
         val uuid = gameRepository.createGame(gameSettings)
 
+        uuid shouldNotBe ""
         uuid shouldNotBe null
 
         coVerify(exactly = 1) { gameNetworkSource.createGame(any()) }
