@@ -50,6 +50,10 @@ android {
         )
         buildUponDefaultConfig = true
     }
+
+    testOptions {
+        unitTests.isReturnDefaultValues = true
+    }
 }
 
 dependencies {
