@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "952601771176",
+    "project_id": "lora-4b3e2",
+    "storage_bucket": "lora-4b3e2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:952601771176:android:cba7f49f700ac9b891169d",
+        "android_client_info": {
+          "package_name": "cz.johnyapps.lora.feature.firebasesignin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "952601771176-8svdmddevrslrqg0m04118e1er2f69b7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "cz.johnyapps.lora.feature.firebasesignin",
+            "certificate_hash": "2eccb1eeb573a3e2b97bc72e771a49937c6044d6"
+          }
+        },
+        {
+          "client_id": "952601771176-160blbcjdl165io924ddrjo0vo93krf7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1Glm1fTvkPDDX0F_eviEXR2isSvhol-w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "952601771176-160blbcjdl165io924ddrjo0vo93krf7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

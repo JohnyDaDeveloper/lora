@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.kotlin) apply false
     alias(libs.plugins.hilt) apply false
     alias(libs.plugins.detekt) apply false
+    alias(libs.plugins.gms) apply false
 }
 
 val reportMerge by tasks.registering(io.gitlab.arturbosch.detekt.report.ReportMergeTask::class) {

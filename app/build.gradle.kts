@@ -74,9 +74,12 @@ dependencies {
     implementation(libs.bundles.hilt)
     kapt(libs.hilt.compiler)
 
+    detektPlugins(libs.bundles.detekt.feature)
+
+    implementation(project(":core:constants"))
+
     implementation(project(":feature:core"))
     implementation(project(":feature:join-game"))
     implementation(project(":feature:create-game"))
-
-    detektPlugins(libs.bundles.detekt.feature)
+    implementation(project(":feature:firebase-sign-in"))
 }

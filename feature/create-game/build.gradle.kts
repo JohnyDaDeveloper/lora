@@ -72,8 +72,6 @@ dependencies {
 
     implementation(project(":core:data"))
 
-    implementation(libs.coroutines)
-
     detektPlugins(libs.bundles.detekt.feature)
     
     testImplementation(libs.bundles.tests)

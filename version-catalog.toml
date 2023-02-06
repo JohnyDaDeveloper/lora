@@ -29,12 +29,17 @@ kotlin = "1.7.20"
 detekt = "1.22.0"
 detekt-compose = "0.0.26"
 
+firebase-bom = "31.2.0"
+
+gms = "4.3.15"
+gms-auth = "20.4.1"
+
 junit = "5.8.2"
 mockk = "1.13.4"
 kotest = "5.5.4"
 
 compileSdk = "33"
-minSdk = "26"
+minSdk = "29"
 versionCode = "1"
 versionName = "1.0"
 jvmTarget = "1.8"
@@ -70,12 +75,17 @@ moshi-codegen = { module = "com.squareup.moshi:moshi-kotlin-codegen", version.re
 detekt-ktlint = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detekt" }
 detekt-compose = { module = "com.twitter.compose.rules:detekt", version.ref = "detekt-compose" }
 
+firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebase-bom" }
+firebase-auth = { module = "com.google.firebase:firebase-auth-ktx" }
+
+gms-auth = { module = "com.google.android.gms:play-services-auth", version.ref = "gms-auth" }
+
 junit = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit" }
 mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
 kotest-assertions = { module = "io.kotest:kotest-assertions-core", version.ref = "kotest" }
 
 [bundles]
-core = ["androidx-core"]
+core = ["androidx-core", "coroutines"]
 ui-core = ["appcompat", "material"]
 tests = ["junit", "mockk", "coroutines-tests", "kotest-assertions"]
 compose = ["compose-material", "compose-preview", "compose-activity", "compose-viewModel", "compose-navigation"]
@@ -84,6 +94,7 @@ hilt = ["hilt", "hilt-navigation"]
 room = ["room-runtime", "room-coroutines"]
 detekt-core = ["detekt-ktlint"]
 detekt-feature = ["detekt-ktlint", "detekt-compose"]
+firebase = ["firebase-auth", "gms-auth"]
 
 [plugins]
 android-app = { id = "com.android.application", version.ref = "gradle-app" }
@@ -92,3 +103,4 @@ kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
+gms = { id = "com.google.gms.google-services", version.ref = "gms" }

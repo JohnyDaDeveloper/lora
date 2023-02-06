@@ -70,7 +70,5 @@ dependencies {
 
     implementation(project(":feature:core"))
 
-    implementation(libs.coroutines)
-
     detektPlugins(libs.bundles.detekt.feature)
 }

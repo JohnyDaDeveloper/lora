@@ -20,6 +20,7 @@
             <option value="$PROJECT_DIR$/feature/card" />
             <option value="$PROJECT_DIR$/feature/core" />
             <option value="$PROJECT_DIR$/feature/create-game" />
+            <option value="$PROJECT_DIR$/feature/firebase-sign-in" />
             <option value="$PROJECT_DIR$/feature/join-game" />
           </set>
         </option>

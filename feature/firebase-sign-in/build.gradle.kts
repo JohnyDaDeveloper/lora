@@ -4,10 +4,11 @@ plugins {
     kotlin("kapt")
     id("com.google.dagger.hilt.android")
     alias(libs.plugins.detekt)
+    alias(libs.plugins.gms)
 }
 
 android {
-    namespace = "cz.johnyapps.lora.core.network"
+    namespace = "cz.johnyapps.lora.feature.firebasesignin"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
@@ -36,12 +37,16 @@ android {
         jvmTarget = libs.versions.jvmTarget.get()
     }
 
-    kapt {
-        correctErrorTypes = true
+    buildFeatures {
+        compose = true
     }
 
-    detekt {
-        basePath = projectDir.path
+    composeOptions {
+        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
+    }
+
+    kapt {
+        correctErrorTypes = true
     }
 
     detekt {
@@ -50,7 +55,7 @@ android {
         toolVersion = libs.versions.detekt.asProvider().get()
         config = files(
             File(detektFolder, "global").listFiles()?.map { it.absolutePath } ?: emptyArray<String>(),
-            File(detektFolder, "core").listFiles()?.map { it.absolutePath } ?: emptyArray<String>()
+            File(detektFolder, "feature").listFiles()?.map { it.absolutePath } ?: emptyArray<String>()
         )
         buildUponDefaultConfig = true
     }
@@ -64,7 +69,11 @@ dependencies {
     implementation(libs.bundles.hilt)
     kapt(libs.hilt.compiler)
 
-    detektPlugins(libs.bundles.detekt.core)
+    detektPlugins(libs.bundles.detekt.feature)
+
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.bundles.firebase)
 
     implementation(project(":core:constants"))
+    implementation(project(":feature:core"))
 }
